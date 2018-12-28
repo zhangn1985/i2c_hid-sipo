@@ -1,8 +1,13 @@
-i2c_hid-sipo-objs := i2c-hid.o
+#
+# Makefile for the I2C input drivers
+#
 
-obj-m := i2c_hid-sipo.o
 
-KDIR := /lib/modules/$(shell uname -r)/build
+obj-m			:= i2c-hid-sipo.o
+
+i2c-hid-sipo-objs	:=  i2c-hid-core.o i2c-hid-dmi-quirks.o
+
+KDIR := /usr/lib/modules/$(shell uname -r)/build
 PWD  := $(shell pwd)
 
 default:
